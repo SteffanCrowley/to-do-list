@@ -1,3 +1,5 @@
+import { buildContent } from "./buildContent";
+
 function buildHeader() {
   const element = document.createElement("div");
   element.classList.add("header");
@@ -5,15 +7,9 @@ function buildHeader() {
   document.body.appendChild(element);
 }
 
-function buildContent() {
-  const element = document.createElement("div");
-  element.id.add("header");
-  document.body.appendChild(element);
-}
-
 function buildFooter() {
   const element = document.createElement("div");
-  element.id.add("footer");
+  element.classList.add("footer");
   document.body.appendChild(element);
 }
 
@@ -21,6 +17,7 @@ function build() {
   buildHeader();
   buildContent();
   buildFooter();
+  console.log("yes");
 }
 
 export { build };
