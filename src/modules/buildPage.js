@@ -17,7 +17,6 @@ function build() {
   buildHeader();
   buildContent();
   buildFooter();
-  console.log("yes");
 }
 
 export { build };
