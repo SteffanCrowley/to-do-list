@@ -1,3 +1,5 @@
+import { buildAddBtn } from "./buildAddButton";
+
 function buildSideBar() {
   const side = document.createElement("div");
   side.classList.add("side");
@@ -10,6 +12,7 @@ function buildTaskArea() {
   task.classList.add("task-area");
   task.innerHTML = "TO-DO LIST";
   document.body.appendChild(task);
+  buildAddBtn();
 }
 
 function buildContent() {
