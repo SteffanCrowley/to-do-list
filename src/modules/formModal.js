@@ -17,10 +17,22 @@ function buildModal() {
   input.setAttribute("id", "todotask");
   input.setAttribute("placeholder", "Task to complete");
 
-  // Create an label element for to do text
+  // Create an input element for to do text
+  const dateInput = document.createElement("input");
+  dateInput.setAttribute("type", "date");
+  dateInput.setAttribute("id", "due");
+  dateInput.setAttribute("name", "due");
+  dateInput.setAttribute("min", "2022-01-01");
+
+  // Create a label element for to do text
   const label = document.createElement("label");
   label.setAttribute("for", "todotask");
   label.innerHTML = "Add new task: ";
+
+  // Create a label element for the due date
+  const dateLabel = document.createElement("label");
+  dateLabel.setAttribute("for", "due");
+  dateLabel.innerHTML = "Due Date: ";
 
   //Create menu container for 'cancel' and 'submit'
   const menu = document.createElement("menu");
@@ -40,6 +52,8 @@ function buildModal() {
   diag.appendChild(form);
   form.appendChild(label);
   form.appendChild(input);
+  form.appendChild(dateLabel);
+  form.appendChild(dateInput);
   form.appendChild(menu);
   menu.appendChild(cancel);
   menu.appendChild(submit);
