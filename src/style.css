@@ -35,6 +35,9 @@ body {
   background-color: rgb(235, 235, 235);
   grid-column: 2 / -1;
   grid-row: 2 / 3;
+  display: grid;
+  gap: 5px;
+  grid-template-rows: repeat(auto-fit, 50px);
 }
 
 .side {
@@ -42,7 +45,9 @@ body {
   grid-row: 2 / 3;
 }
 
-button {
+.add,
+#cancel,
+#submit {
   padding: 0.8rem 1.3rem;
   font-size: 1.3rem;
   background-color: rgb(235, 235, 235);
@@ -50,11 +55,19 @@ button {
   border-radius: 10px;
   letter-spacing: -1px;
   border: none;
-  width: 500px;
+  width: 600px;
   height: 50px;
 }
 
 button:hover {
+  background-color: rgb(206, 206, 206);
+}
+
+#cancel:hover {
+  background-color: rgb(206, 206, 206);
+}
+
+#submit:hover {
   background-color: rgb(206, 206, 206);
 }
 
@@ -68,7 +81,7 @@ dialog {
   z-index: 100;
   width: 600px;
   max-width: 100%;
-  height: 400px;
+  height: 200px;
   max-height: 100%;
 }
 
@@ -79,8 +92,36 @@ form {
 
 label {
   font-size: 32px;
+  height: 60px;
 }
 
 input {
   font-size: 32px;
+  height: 60px;
+}
+
+.closeBtn {
+  padding: 0.8rem 1.3rem;
+  font-size: 25px;
+  background-color: rgb(235, 235, 235);
+  color: rgb(65, 65, 65);
+  border-radius: 10px;
+  letter-spacing: -1px;
+  border: none;
+  width: 50px;
+  height: 50px;
+  align-self: center;
+}
+
+.card {
+  display: flex;
+  align-items: center;
+  color: rgb(65, 65, 65);
+}
+
+.title {
+  height: 25px;
+  font-size: 25px;
+  width: 500px;
+  align-self: center;
 }

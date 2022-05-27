@@ -1,18 +1,12 @@
-let myList = [];
+import { submitText } from "./submitText";
 
-//this function creates the block to accept the task
-function addTextToDom() {
-  const container = document.querySelector("#content");
-  const element = document.createElement("div");
-  element.classList.add("item");
-  container.appendChild(element);
-}
+let myList = [];
 
 //function that adds task to class textItem and adds it to array
 function addTextToClass(checkBox, task, date) {
   const newTask = new textItem(checkBox, task, date);
   myList.push(newTask);
-  console.log(myList);
+  submitText(myList);
 }
 
 //constructor function for making task entries
@@ -30,3 +24,5 @@ class textItem {
     };
   }
 }
+
+export { addTextToClass };

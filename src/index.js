@@ -1,16 +1,23 @@
 import "./style.css";
 import { build } from "./modules/buildPage";
 import { buildModal } from "./modules/formModal";
+import { addTextToClass } from "./modules/text";
 
 build();
 buildModal();
 
+const inputText = document.querySelector("input");
 const favDialog = document.getElementById("dialogMod");
+let sendText = "";
+
+inputText.addEventListener("change", function onSelect(e) {
+  sendText = inputText.value;
+});
 
 document.addEventListener("click", (e) => {
   const target = e.target.innerText;
 
   if (target === "+ Add Task") favDialog.showModal();
-  //   if (target === "MENU") loadMenu();
+  if (target === "SUBMIT") addTextToClass("first", sendText, "third");
   //   if (target === "CONTACT") loadContact();
 });
