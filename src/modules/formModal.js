@@ -3,18 +3,24 @@ function buildModal() {
   const container = document.querySelector(".task-area");
   const diag = document.createElement("dialog");
   diag.id = "dialogMod";
-  document.body.appendChild(diag);
+  container.appendChild(diag);
 
   // Create a form dynamically
   const form = document.createElement("form");
-  form.setAttribute("method", "post");
-  form.setAttribute("action", "submit.php");
+  form.setAttribute("method", "dialog");
+  //   form.setAttribute("action", "submit.php");
 
-  // Create an input element for Full Name
+  // Create an input element for to do text
   const input = document.createElement("input");
   input.setAttribute("type", "text");
-  input.setAttribute("name", "FullName");
-  input.setAttribute("placeholder", "Full Name");
+  input.setAttribute("name", "todotask");
+  input.setAttribute("id", "todotask");
+  input.setAttribute("placeholder", "Task to complete");
+
+  // Create an label element for to do text
+  const label = document.createElement("label");
+  label.setAttribute("for", "todotask");
+  label.innerHTML = "Add new task: ";
 
   //Create menu container for 'cancel' and 'submit'
   const menu = document.createElement("menu");
@@ -22,15 +28,17 @@ function buildModal() {
   //Create 'cancel' button
   const cancel = document.createElement("button");
   cancel.id = "cancel";
-  cancel.setAttribute("type", "reset");
+  cancel.setAttribute("value", "cancel");
   cancel.innerHTML = "CANCEL";
 
   //Create 'submit' button
   const submit = document.createElement("button");
-  submit.id = "cancel";
+  submit.id = "submit";
+  cancel.setAttribute("value", "default");
   submit.innerHTML = "SUBMIT";
 
   diag.appendChild(form);
+  form.appendChild(label);
   form.appendChild(input);
   form.appendChild(menu);
   menu.appendChild(cancel);
