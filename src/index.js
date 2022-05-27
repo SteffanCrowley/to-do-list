@@ -16,8 +16,10 @@ inputText.addEventListener("change", function onSelect(e) {
 
 document.addEventListener("click", (e) => {
   const target = e.target.innerText;
-
-  if (target === "+ Add Task") favDialog.showModal();
   if (target === "SUBMIT") addTextToClass("first", sendText, "third");
-  //   if (target === "CONTACT") loadContact();
+});
+
+const add = document.querySelector(".add");
+add.addEventListener("click", (e) => {
+  favDialog.showModal();
 });

@@ -52,9 +52,9 @@ function submitText(myList) {
     div.appendChild(closeBtn);
 
     // //engage event listener for close button
-    // closeBtn.addEventListener("click", (event) => {
-    //   main.removeChild(div);
-    // });
+    closeBtn.addEventListener("click", (event) => {
+      container.removeChild(div);
+    });
 
     // let x = myLibrary[i].readStatus;
     // //engage event listener for read button
