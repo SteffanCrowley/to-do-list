@@ -1,14 +1,14 @@
 //function that draws the current board by iterating through
 //the current library array
 function submitText(myList) {
-  const container = document.querySelector(".task-area");
-  console.log(myList);
+  const container = document.querySelector(".card-area");
+  // console.log(myList);
+  // container.innerHTML = "";
 
   for (let i = myList.length - 1; i < myList.length; i++) {
     let p;
     let p1;
     let closeBtn;
-    let readBtn;
 
     //creates card
     let div = document.createElement("div");
@@ -27,12 +27,6 @@ function submitText(myList) {
     p1.textContent = myList[i].date;
     div.appendChild(p1);
 
-    // //Adds read button to card
-    // readBtn = document.createElement("button");
-    // readBtn.classList.add("readBtn");
-    // readBtn.textContent = "Read";
-    // div.appendChild(readBtn);
-
     // //Adds close button to card
     closeBtn = document.createElement("button");
     closeBtn.classList.add("closeBtn");
@@ -43,17 +37,6 @@ function submitText(myList) {
     closeBtn.addEventListener("click", (event) => {
       container.removeChild(div);
     });
-
-    // let x = myLibrary[i].readStatus;
-    // //engage event listener for read button
-    // readBtn.addEventListener("click", (event) => {
-    //   x = !x;
-    //   if (x == true) {
-    //     p1.textContent = "read";
-    //   } else {
-    //     p1.textContent = "unread";
-    //   }
-    // });
   }
 }
 

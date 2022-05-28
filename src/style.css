@@ -130,6 +130,7 @@ input {
   height: 25px;
   font-size: 25px;
   align-self: center;
+  width: 200px;
 }
 
 .dateBtn {

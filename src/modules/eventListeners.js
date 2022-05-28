@@ -1,11 +1,13 @@
 import { addTextToClass } from "./text";
-import format from "date-fns/format";
-import parseISO from "date-fns/parseISO";
+import { sortWeek } from "./sortDate";
+import { scan } from "./scan";
 
 function eventListeners() {
   const inputText = document.querySelector("#todotask");
   const favDialog = document.getElementById("dialogMod");
   const dueDate = document.querySelector("#due");
+  const submitBtn = document.querySelector("#submit");
+
   let sendText = "";
   let sendDate = "";
 
@@ -15,17 +17,20 @@ function eventListeners() {
 
   dueDate.addEventListener("change", function onSelect(e) {
     sendDate = dueDate.value;
-    console.log(format(parseISO(sendDate), "MM/dd/yyyy"));
   });
 
-  document.addEventListener("click", (e) => {
-    const target = e.target.innerText;
-    if (target === "SUBMIT") addTextToClass("first", sendText, sendDate);
+  submitBtn.addEventListener("click", (e) => {
+    addTextToClass("steffan", sendText, sendDate);
   });
 
   const add = document.querySelector(".add");
   add.addEventListener("click", (e) => {
     favDialog.showModal();
+  });
+
+  const dateBtn = document.querySelector(".dateBtn");
+  dateBtn.addEventListener("click", (e) => {
+    scan();
   });
 }
 
