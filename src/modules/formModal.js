@@ -17,7 +17,7 @@ function buildModal() {
   input.setAttribute("id", "todotask");
   input.setAttribute("placeholder", "Task to complete");
 
-  // Create an input element for to do text
+  // Create an input element for to do date
   const dateInput = document.createElement("input");
   dateInput.setAttribute("type", "date");
   dateInput.setAttribute("id", "due");

@@ -15,29 +15,17 @@ function submitText(myList) {
     div.classList.add(`card`);
     container.appendChild(div);
 
-    //Adds title to card
+    //Adds task to card
     p = document.createElement("p");
     p.classList.add("title");
     p.textContent = myList[i].task;
     div.appendChild(p);
 
-    // //Adds author to card
-    // p = document.createElement("p");
-    // p.classList.add("author");
-    // p.textContent = myLibrary[i].author;
-    // div.appendChild(p);
-
-    // //Adds page count to card
-    // p = document.createElement("p");
-    // p.classList.add("page");
-    // p.textContent = myLibrary[i].numberofPages;
-    // div.appendChild(p);
-
-    // //Adds read status to card
-    // p1 = document.createElement("p");
-    // p1.classList.add("page");
-    // p1.textContent = myLibrary[i].info();
-    // div.appendChild(p1);
+    // //Adds date status to card
+    p1 = document.createElement("p");
+    p1.classList.add("date");
+    p1.textContent = myList[i].date;
+    div.appendChild(p1);
 
     // //Adds read button to card
     // readBtn = document.createElement("button");
