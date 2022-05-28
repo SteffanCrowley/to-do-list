@@ -2,6 +2,8 @@ import "./style.css";
 import { build } from "./modules/buildPage";
 import { buildModal } from "./modules/formModal";
 import { addTextToClass } from "./modules/text";
+import format from "date-fns/format";
+import parseISO from "date-fns/parseISO";
 
 build();
 buildModal();
@@ -18,6 +20,7 @@ inputText.addEventListener("change", function onSelect(e) {
 
 dueDate.addEventListener("change", function onSelect(e) {
   sendDate = dueDate.value;
+  console.log(format(parseISO(sendDate), "MM/dd/yyyy"));
 });
 
 document.addEventListener("click", (e) => {

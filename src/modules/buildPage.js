@@ -1,4 +1,5 @@
 import { buildContent } from "./buildContent";
+import { dateBtns } from "./dateBtns";
 
 function buildHeader() {
   const element = document.createElement("div");
@@ -17,6 +18,7 @@ function build() {
   buildHeader();
   buildContent();
   buildFooter();
+  dateBtns();
 }
 
 export { build };

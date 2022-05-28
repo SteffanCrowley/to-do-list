@@ -131,3 +131,15 @@ input {
   font-size: 25px;
   align-self: center;
 }
+
+.dateBtn {
+  padding: 0.8rem 1.3rem;
+  font-size: 1.3rem;
+  background-color: rgb(235, 235, 235);
+  color: rgb(65, 65, 65);
+  border-radius: 10px;
+  letter-spacing: -1px;
+  border: none;
+  width: 200px;
+  height: 50px;
+}
