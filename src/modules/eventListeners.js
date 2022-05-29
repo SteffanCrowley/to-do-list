@@ -1,5 +1,4 @@
 import { addTextToClass } from "./text";
-import { sortWeek } from "./sortDate";
 import { scan } from "./scan";
 
 function eventListeners() {

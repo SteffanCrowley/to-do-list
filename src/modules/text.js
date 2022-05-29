@@ -25,4 +25,4 @@ class textItem {
   }
 }
 
-export { addTextToClass };
+export { addTextToClass, textItem };
