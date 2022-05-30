@@ -23,11 +23,27 @@ function projectAdd() {
 
 function addPrj() {
   const side = document.querySelector(".side");
+  const card = document.createElement("div");
+  card.classList.add("card-prj");
+
   let edit = prompt("Name your project", `My project`);
   const prj = document.createElement("button");
   prj.classList.add("add-prj");
   prj.innerHTML = edit;
-  side.appendChild(prj);
+
+  // //Adds close button to card
+  const closePrj = document.createElement("button");
+  closePrj.classList.add("close-Prj");
+  closePrj.textContent = "x";
+
+  // //engage event listener for close button
+  closePrj.addEventListener("click", (event) => {
+    side.removeChild(card);
+  });
+
+  side.appendChild(card);
+  card.appendChild(prj);
+  card.appendChild(closePrj);
 }
 
 export { projectBtns };
