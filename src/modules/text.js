@@ -1,12 +1,16 @@
-import { submitText } from "./submitText";
+import parseISO from "date-fns/parseISO";
+import isToday from "date-fns/isToday";
+import isThisWeek from "date-fns/isThisWeek";
 
 let myList = [];
+const container = document.querySelector(".card-area");
 
 //function that adds task to class textItem and adds it to array
 function addTextToClass(checkBox, task, date) {
   const newTask = new textItem(checkBox, task, date);
   myList.push(newTask);
-  submitText(myList);
+  submitText("all");
+  console.log(myList);
 }
 
 //constructor function for making task entries
@@ -25,4 +29,94 @@ class textItem {
   }
 }
 
-export { addTextToClass, textItem };
+function submitText(action) {
+  const container = document.querySelector(".card-area");
+  container.innerHTML = "";
+
+  if (action == "all") {
+    for (let i = 0; i < myList.length; i++) {
+      let p;
+      let p1;
+      let closeBtn;
+
+      //creates card
+      let div = document.createElement("div");
+      div.classList.add(`card`);
+      container.appendChild(div);
+
+      //Adds task to card
+      p = document.createElement("p");
+      p.classList.add("title");
+      p.textContent = myList[i].task;
+      div.appendChild(p);
+
+      // //Adds date status to card
+      p1 = document.createElement("p");
+      p1.classList.add("date");
+      p1.textContent = myList[i].date;
+      div.appendChild(p1);
+
+      // //Adds close button to card
+      closeBtn = document.createElement("button");
+      closeBtn.classList.add("closeBtn");
+      closeBtn.textContent = "x";
+      div.appendChild(closeBtn);
+
+      // //engage event listener for close button
+      closeBtn.addEventListener("click", (event) => {
+        container.removeChild(div);
+        myList.splice(i, 1);
+      });
+    }
+  } else if (action == "today") {
+    for (let i = 0; i < myList.length; i++) {
+      if (isToday(parseISO(myList[i].date))) {
+        let p;
+        let p1;
+
+        //creates card
+        let div = document.createElement("div");
+        div.classList.add(`card`);
+        container.appendChild(div);
+
+        //Adds task to card
+        p = document.createElement("p");
+        p.classList.add("title");
+        p.textContent = myList[i].task;
+        div.appendChild(p);
+
+        // //Adds date status to card
+        p1 = document.createElement("p");
+        p1.classList.add("date");
+        p1.textContent = myList[i].date;
+        div.appendChild(p1);
+      }
+    }
+  } else if (action == "week") {
+    for (let i = 0; i < myList.length; i++) {
+      if (isThisWeek(parseISO(myList[i].date))) {
+        let p;
+        let p1;
+
+        //creates card
+        let div = document.createElement("div");
+        div.classList.add(`card`);
+        container.appendChild(div);
+
+        //Adds task to card
+        p = document.createElement("p");
+        p.classList.add("title");
+        p.textContent = myList[i].task;
+        div.appendChild(p);
+
+        // //Adds date status to card
+        p1 = document.createElement("p");
+        p1.classList.add("date");
+        p1.textContent = myList[i].date;
+        div.appendChild(p1);
+      }
+    }
+  }
+}
+
+export { addTextToClass, textItem, submitText };

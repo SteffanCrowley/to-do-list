@@ -133,7 +133,9 @@ input {
   width: 200px;
 }
 
-.dateBtn {
+.dateBtn,
+.dateBtn2,
+.dateBtn3 {
   padding: 0.8rem 1.3rem;
   font-size: 1.3rem;
   background-color: rgb(235, 235, 235);

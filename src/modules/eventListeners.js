@@ -1,5 +1,5 @@
 import { addTextToClass } from "./text";
-import { scan } from "./scan";
+import { submitText } from "./text";
 
 function eventListeners() {
   const inputText = document.querySelector("#todotask");
@@ -29,7 +29,17 @@ function eventListeners() {
 
   const dateBtn = document.querySelector(".dateBtn");
   dateBtn.addEventListener("click", (e) => {
-    scan();
+    submitText("today");
+  });
+
+  const dateBtn2 = document.querySelector(".dateBtn2");
+  dateBtn2.addEventListener("click", (e) => {
+    submitText("week");
+  });
+
+  const dateBtn3 = document.querySelector(".dateBtn3");
+  dateBtn3.addEventListener("click", (e) => {
+    submitText("all");
   });
 }
 
