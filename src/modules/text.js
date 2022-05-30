@@ -79,6 +79,7 @@ function submitText(action) {
       closeBtn.addEventListener("click", (event) => {
         container.removeChild(div);
         myList.splice(i, 1);
+        submitText("all");
       });
     }
   } else if (action == "today") {

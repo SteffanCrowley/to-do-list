@@ -44,7 +44,7 @@ body {
   background-color: rgb(235, 235, 235);
   grid-row: 2 / 3;
   display: grid;
-  grid-template-rows: 50px 50px 50px;
+  grid-template-rows: repeat(auto-fit, 50px);
 }
 
 .add,
@@ -138,8 +138,10 @@ input {
 
 .dateBtn,
 .dateBtn2,
-.dateBtn3 {
-  padding: 0.8rem 1.3rem;
+.dateBtn3,
+.add-prj,
+.project-title {
+  /* padding: 0.8rem 1.3rem; */
   font-size: 1.3rem;
   background-color: rgb(235, 235, 235);
   color: rgb(65, 65, 65);
@@ -148,4 +150,14 @@ input {
   border: none;
   width: 200px;
   height: 50px;
+  text-align: center;
+  justify-content: center;
+}
+
+.project-title {
+  background-color: rgb(65, 65, 65);
+  color: rgb(235, 235, 235);
+  border-radius: 0px;
+  font-weight: 800;
+  font-size: 1.6rem;
 }
