@@ -100,7 +100,8 @@ input {
   height: 60px;
 }
 
-.closeBtn {
+.closeBtn,
+.editBtn {
   padding: 0.8rem 1.3rem;
   font-size: 25px;
   background-color: rgb(235, 235, 235);

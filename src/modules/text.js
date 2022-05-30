@@ -38,6 +38,7 @@ function submitText(action) {
       let p;
       let p1;
       let closeBtn;
+      let editBtn;
 
       //creates card
       let div = document.createElement("div");
@@ -55,6 +56,18 @@ function submitText(action) {
       p1.classList.add("date");
       p1.textContent = myList[i].date;
       div.appendChild(p1);
+
+      // //Adds edit button to card
+      editBtn = document.createElement("button");
+      editBtn.classList.add("editBtn");
+      editBtn.textContent = "E";
+      div.appendChild(editBtn);
+
+      // //engage event listener for edit button
+      editBtn.addEventListener("click", (event) => {
+        let edit = prompt("Please edit your task", `${myList[i].task}`);
+        p.textContent = edit;
+      });
 
       // //Adds close button to card
       closeBtn = document.createElement("button");
