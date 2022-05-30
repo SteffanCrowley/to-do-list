@@ -27,23 +27,25 @@ function addPrj() {
   card.classList.add("card-prj");
 
   let edit = prompt("Name your project", `My project`);
-  const prj = document.createElement("button");
-  prj.classList.add("add-prj");
-  prj.innerHTML = edit;
+  if (edit != null) {
+    const prj = document.createElement("button");
+    prj.classList.add("add-prj");
+    prj.innerHTML = edit;
 
-  // //Adds close button to card
-  const closePrj = document.createElement("button");
-  closePrj.classList.add("close-Prj");
-  closePrj.textContent = "x";
+    // //Adds close button to card
+    const closePrj = document.createElement("button");
+    closePrj.classList.add("close-Prj");
+    closePrj.textContent = "x";
 
-  // //engage event listener for close button
-  closePrj.addEventListener("click", (event) => {
-    side.removeChild(card);
-  });
+    // //engage event listener for close button
+    closePrj.addEventListener("click", (event) => {
+      side.removeChild(card);
+    });
 
-  side.appendChild(card);
-  card.appendChild(prj);
-  card.appendChild(closePrj);
+    side.appendChild(card);
+    card.appendChild(prj);
+    card.appendChild(closePrj);
+  }
 }
 
 export { projectBtns };
