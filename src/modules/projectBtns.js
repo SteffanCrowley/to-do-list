@@ -40,7 +40,7 @@ function addPrj() {
 
     // //engage event listener for project button
     prj.addEventListener("click", (event) => {
-      eventListeners(i);
+      eventListeners(card.id);
     });
 
     i++;

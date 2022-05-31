@@ -3,13 +3,20 @@ import isToday from "date-fns/isToday";
 import isThisWeek from "date-fns/isThisWeek";
 
 let myList = [];
+let lastTask = {
+  task: "",
+};
 
 //function that adds task to class textItem and adds it to array
 function addTextToClass(prjId, task, date) {
   const newTask = new textItem(prjId, task, date);
-  myList.push(newTask);
-  submitText("all");
-  console.log(newTask);
+
+  if (newTask.task !== lastTask.task && newTask.task !== "") {
+    myList.push(newTask);
+    submitText("all");
+    console.log(newTask);
+    lastTask.task = newTask.task;
+  }
 }
 
 //constructor function for making task entries
