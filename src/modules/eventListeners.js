@@ -1,14 +1,16 @@
 import { addTextToClass } from "./text";
 import { submitText } from "./text";
 
-function eventListeners() {
+function eventListeners(prjId) {
   const inputText = document.querySelector("#todotask");
-  const favDialog = document.getElementById("dialogMod");
   const dueDate = document.querySelector("#due");
   const submitBtn = document.querySelector("#submit");
 
   let sendText = "";
   let sendDate = "";
+  let sendId = prjId;
+
+  console.log(sendId);
 
   inputText.addEventListener("change", function onSelect(e) {
     sendText = inputText.value;
@@ -19,8 +21,12 @@ function eventListeners() {
   });
 
   submitBtn.addEventListener("click", (e) => {
-    addTextToClass("steffan", sendText, sendDate);
+    addTextToClass(sendId, sendText, sendDate);
   });
+}
+
+function eventListeners2() {
+  const favDialog = document.getElementById("dialogMod");
 
   const add = document.querySelector(".add");
   add.addEventListener("click", (e) => {
@@ -64,4 +70,4 @@ function eventListeners() {
   });
 }
 
-export { eventListeners };
+export { eventListeners, eventListeners2 };

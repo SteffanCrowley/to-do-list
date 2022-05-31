@@ -3,22 +3,21 @@ import isToday from "date-fns/isToday";
 import isThisWeek from "date-fns/isThisWeek";
 
 let myList = [];
-const container = document.querySelector(".card-area");
 
 //function that adds task to class textItem and adds it to array
-function addTextToClass(checkBox, task, date) {
-  const newTask = new textItem(checkBox, task, date);
+function addTextToClass(prjId, task, date) {
+  const newTask = new textItem(prjId, task, date);
   myList.push(newTask);
   submitText("all");
-  console.log(myList);
+  console.log(newTask);
 }
 
 //constructor function for making task entries
 class textItem {
-  constructor(checkBox, task, date) {
+  constructor(prjId, task, date) {
     this.task = task;
     this.date = date;
-    this.checkBox = checkBox;
+    this.prjId = prjId;
     this.info = function () {
       if (readStatus == true) {
         return "read";
