@@ -21,12 +21,15 @@ function projectAdd() {
   btn.addEventListener("click", (event) => {
     addPrj();
   });
+  const listContainer = document.createElement("ul");
+  side.appendChild(listContainer);
 }
 
-let i = 0;
+//let projList = ["task", "data"];
+let i = 1;
 
 function addPrj() {
-  const side = document.querySelector(".side");
+  const container = document.querySelector("ul");
 
   let edit = prompt("Name your project", `My project`);
   if (edit != null) {
@@ -39,9 +42,9 @@ function addPrj() {
     prj.innerHTML = edit;
 
     // //engage event listener for project button
-    prj.addEventListener("click", (event) => {
-      eventListeners(card.id);
-    });
+    // prj.addEventListener("click", (event) => {
+    //   eventListeners(card.id);
+    // });
 
     i++;
     // //Adds close button to card
@@ -51,10 +54,10 @@ function addPrj() {
 
     // //engage event listener for close button
     closePrj.addEventListener("click", (event) => {
-      side.removeChild(card);
+      container.removeChild(card);
     });
 
-    side.appendChild(card);
+    container.appendChild(card);
     card.appendChild(prj);
     card.appendChild(closePrj);
   }

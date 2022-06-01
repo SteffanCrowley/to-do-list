@@ -1,16 +1,21 @@
 import { addTextToClass } from "./text";
 import { submitText } from "./text";
 
-function eventListeners(prjId) {
+function eventListeners() {
   const inputText = document.querySelector("#todotask");
   const dueDate = document.querySelector("#due");
   const submitBtn = document.querySelector("#submit");
+  const container = document.querySelector("ul");
 
   let sendText = "";
   let sendDate = "";
-  let sendId = prjId;
+  let sendId = "0";
 
-  console.log(sendId);
+  //console.log(sendId);
+
+  container.addEventListener("click", (e) => {
+    sendId = e.target.id;
+  });
 
   inputText.addEventListener("change", function onSelect(e) {
     sendText = inputText.value;
