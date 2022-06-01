@@ -9,9 +9,13 @@ function addTextToClass(prjId, task, date) {
   const newTask = new textItem(prjId, task, date);
   if (newTask.task !== "") {
     myList.push(newTask);
-    submitText("all");
-    console.log(newTask);
+    if (prjId == 0) {
+      submitText("all");
+    } else {
+      submitText("project", newTask.prjId);
+    }
   }
+  console.log(newTask);
 }
 
 //constructor function for making task entries
@@ -30,7 +34,7 @@ class textItem {
   }
 }
 
-function submitText(action) {
+function submitText(action, pId) {
   const container = document.querySelector(".card-area");
   container.innerHTML = "";
 
@@ -110,6 +114,30 @@ function submitText(action) {
   } else if (action == "week") {
     for (let i = 0; i < myList.length; i++) {
       if (isThisWeek(parseISO(myList[i].date))) {
+        let p;
+        let p1;
+
+        //creates card
+        let div = document.createElement("div");
+        div.classList.add(`card`);
+        container.appendChild(div);
+
+        //Adds task to card
+        p = document.createElement("p");
+        p.classList.add("title");
+        p.textContent = myList[i].task;
+        div.appendChild(p);
+
+        // //Adds date status to card
+        p1 = document.createElement("p");
+        p1.classList.add("date");
+        p1.textContent = myList[i].date;
+        div.appendChild(p1);
+      }
+    }
+  } else if (action == "project") {
+    for (let i = 0; i < myList.length; i++) {
+      if (myList[i].prjId == pId) {
         let p;
         let p1;
 

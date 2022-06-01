@@ -9,12 +9,13 @@ function eventListeners() {
 
   let sendText = "";
   let sendDate = "";
-  let sendId = "0";
+  let sendId = 0;
 
   //console.log(sendId);
 
   container.addEventListener("click", (e) => {
     sendId = e.target.id;
+    submitText("project", sendId);
   });
 
   inputText.addEventListener("change", function onSelect(e) {
