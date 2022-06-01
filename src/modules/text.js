@@ -2,13 +2,16 @@ import parseISO from "date-fns/parseISO";
 import isToday from "date-fns/isToday";
 import isThisWeek from "date-fns/isThisWeek";
 
-let myList = [];
+const LOCAL_STORAGE_LIST_KEY = "task.lists";
+
+let myList = JSON.parse(localStorage.getItem(LOCAL_STORAGE_LIST_KEY)) || [];
 
 //function that adds task to class textItem and adds it to array
 function addTextToClass(prjId, task, date) {
   const newTask = new textItem(prjId, task, date);
   if (newTask.task !== "") {
     myList.push(newTask);
+    save();
     if (prjId == 0) {
       submitText("all");
     } else {
@@ -160,6 +163,10 @@ function submitText(action, pId) {
       }
     }
   }
+}
+
+function save() {
+  localStorage.setItem(LOCAL_STORAGE_LIST_KEY, JSON.stringify(myList));
 }
 
 export { addTextToClass, textItem, submitText };

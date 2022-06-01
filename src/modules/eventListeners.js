@@ -5,13 +5,15 @@ function eventListeners() {
   const inputText = document.querySelector("#todotask");
   const dueDate = document.querySelector("#due");
   const submitBtn = document.querySelector("#submit");
-  const container = document.querySelector("ul");
+  //const container = document.querySelector("ul");
 
   let sendText = "";
   let sendDate = "";
   let sendId = 0;
 
   //console.log(sendId);
+
+  const container = document.querySelector("ul");
 
   container.addEventListener("click", (e) => {
     sendId = e.target.id;
